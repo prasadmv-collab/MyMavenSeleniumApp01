@@ -3,31 +3,41 @@ package com.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class App 
-{
-    public static void main(String[] args)
-    {
-        //  Add this block
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");   // required for Jenkins
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+public class App {
 
-        //  Replace driver creation
-        WebDriver driver = new ChromeDriver(options);
+    public static void main(String[] args) throws InterruptedException {
 
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        // ---------------------------------------------------
+        // SauceDemo Automation
+        // ---------------------------------------------------
         driver.get("https://www.saucedemo.com/");
-        
-        //  maximize may fail in headless, so optional
-        // driver.manage().window().maximize();
 
+        Thread.sleep(2000);
+
+        // Enter Username
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
+
+        Thread.sleep(2000);
+
+        // Enter Password
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
+
+        Thread.sleep(2000);
+
+        // Click Login
         driver.findElement(By.id("login-button")).click();
 
-        // good practice
+        Thread.sleep(4000);
+
+        // Print success message
+        System.out.println("Login Successful on SauceDemo!");
+
+        Thread.sleep(3000);
+
         driver.quit();
     }
 }
