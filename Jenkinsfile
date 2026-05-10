@@ -7,7 +7,7 @@
 //     stages {
 //         stage('Checkout') {
 //             steps {
-//                 git branch: 'main', url: 'https://github.com/akashsuresh2005/MySausedemo.git
+//                 git branch: 'master', url: 'https://github.com/prasadmv-collab/MyMavenSeleniumApp01.git'
 //             }
 //         }
 
@@ -58,7 +58,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Fixed: Added the closing quote after .git
-                git branch: 'main', url: 'https://github.com/akashsuresh2005/MySausedemo.git'
+               git branch: 'master', url: 'https://github.com/prasadmv-collab/MyMavenSeleniumApp01.git'
             }
         }
 
